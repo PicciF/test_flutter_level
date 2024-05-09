@@ -1,0 +1,13 @@
+###
+//DONE
+# @name list_vulnerable_species
+POST https://apiv3.iucnredlist.org/api/v3/species/category/VU?token=9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee
+Content-Type: application/x-www-form-urlencoded
+
+
+###
+//DONE
+# @name details_of_species
+POST https://apiv3.iucnredlist.org/api/v3/species/Abarema%20abbottii?token=9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee
+Content-Type: application/x-www-form-urlencoded
+
