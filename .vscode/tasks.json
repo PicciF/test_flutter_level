@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Watch Generated code",
+			"type": "shell",
+			"command": "flutter pub run build_runner watch --delete-conflicting-outputs lib",
+			"problemMatcher": []
+		}
+	]
+}
