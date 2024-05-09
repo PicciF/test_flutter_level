@@ -4,22 +4,20 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:test_flutter_level/backend/api.dart';
+import 'package:test_flutter_level/app_router.dart';
 import 'package:test_flutter_level/constants.dart';
+import 'package:test_flutter_level/models/preferences.dart';
 
 //import 'package:permission_handler/permission_handler.dart';
 
 import 'app_router.gr.dart';
 import 'globals.dart';
-import 'models/preferences.dart';
 
 void main() async {
-  final appRouter = AppRouter();
+  final appRouter = AppRouter(checkIfSplashIsDone: CheckIfSplashIsDone());
   WidgetsFlutterBinding.ensureInitialized();
 
   global.preferences = await Preferences().read();
-
-  global.species = await getSpeciesByCategory(CATEGORY_VULNERABLE);
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) => runApp(

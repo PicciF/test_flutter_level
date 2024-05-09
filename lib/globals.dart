@@ -12,6 +12,7 @@ class Global {
   //easy getter to know if the user is logged in
   bool get isLoggedIn => preferences.user != null;
   Map<String, String> headers = {};
+  bool splashAlreadyDone = false;
 
   void logout() {
     preferences.user = null;

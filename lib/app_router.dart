@@ -1,6 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:auto_route/auto_route.dart';
+import 'package:test_flutter_level/app_router.gr.dart';
+import 'package:test_flutter_level/globals.dart';
+import 'package:test_flutter_level/scaffolds/scaffold_splash.dart';
 
 import '../scaffolds/scaffold_home.dart';
 
@@ -8,16 +11,21 @@ import '../scaffolds/scaffold_home.dart';
 
 @AdaptiveAutoRouter(
   routes: <AutoRoute>[
-    AutoRoute(page: ScaffoldHome, initial: true), //guards: [CheckIfLoginIsDone],
+    AutoRoute(page: ScaffoldSplash),
+    AutoRoute(page: ScaffoldHome, guards: [CheckIfSplashIsDone], initial: true), //guards: [CheckIfLoginIsDone],
   ],
 )
 class $AppRouter {}
 
 //guard for login check
 
-/*class CheckIfLoginIsDone extends AutoRouteGuard {
+class CheckIfSplashIsDone extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) async {
-    
+    if (global.splashAlreadyDone) {
+      resolver.next(true);
+    } else {
+      router.push(const ScaffoldSplashRoute());
+    }
   }
-}*/
+}

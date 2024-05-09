@@ -27,4 +27,7 @@ Ho implementato gia i modelli utili in caso di di sviluppo della funzionalita bo
 Nonostante all`interno di questa app ci siano solo due pagine, ho scelto di usare la libreria auto_routing poichè è quella che utilizzo solitamente quindi la conoosco bene e so già come impostare tutte le impostazioni.
 La scelta è stata fatta anche perchè in caso di futuro sviluppo sarà più comodo aumentare il numero di pagine poichè la struttura del routing è gia definita.
 
+# PAGES
+Ho aggiunto la schermata di splash in modo tale da completare la api iniziale la quale ha molti elementi.
+Preferisco inserire il caricamento dei dati iniziali nella schermata splash piuttosto che nella home perchè suppongo sia un percorso migliore, avvio l`app, avviene il carimento delle risorse iniziali e poi quando sono all interno dell app ho le informazioni subito.
 

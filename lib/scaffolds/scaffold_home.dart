@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:test_flutter_level/backend/api.dart';
+import 'package:test_flutter_level/globals.dart';
 import 'package:test_flutter_level/models/specie.dart';
 
 class ScaffoldHome extends StatefulWidget {
@@ -19,7 +20,7 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
     return Scaffold(
       body: Center(
         child: TextButton(
-          child: const Text("Home"),
+          child: Text(global.species.length.toString()),
           onPressed: () async {
             Specie specei = await getSpecieDetailsByName("Abarema abbottii");
             debugPrint(specei.kingdom);
