@@ -32,3 +32,5 @@ Ho aggiunto la schermata di splash in modo tale da completare la api iniziale la
 Preferisco inserire il caricamento dei dati iniziali nella schermata splash piuttosto che nella home perchè suppongo sia un percorso migliore, avvio l`app, avviene il carimento delle risorse iniziali e poi quando sono all interno dell app ho le informazioni subito. 
 Ho gia predisposto il codice per la login in quanto ho deciso di farla, di conseguenza mi viene più comodo strutturare il codice fin dallinizio prevedendo la login piuttosto di modificare successivamente.
 
+Ho scelto di gestire la lista di speci vulnerabili come una lista infinita data la grossa mole di elementi, per non appesantire il caricamento e lo scroll ho deciso di impaginare gli elementi con un pagesize di 20, al termine dello scroll di questi 20 elementi vengono aggiungi alla lista che viene mostrata altri 20 elementi in automatico.
+
