@@ -24,7 +24,6 @@ class ListtileSpecie extends StatelessWidget {
         fontSize: 12,
         color: Colors.grey,
       ),
-      subtitleTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black),
       onTap: doOnPressed,
     );
   }
