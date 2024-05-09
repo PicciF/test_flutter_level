@@ -1,20 +1,40 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:test_flutter_level/constants.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+//import 'package:permission_handler/permission_handler.dart';
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+import 'app_router.gr.dart';
+import 'globals.dart';
+import 'models/preferences.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+void main() async {
+  final appRouter = AppRouter();
+  WidgetsFlutterBinding.ensureInitialized();
+  global.preferences = await Preferences().read();
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+    (_) => runApp(
+      DevicePreview(
+        enabled: kDebugMode,
+        builder: (context) => MaterialApp.router(
+          title: 'Test Flutter Level',
+          themeAnimationDuration: Duration.zero,
+          routerDelegate: appRouter.delegate(),
+          routeInformationParser: appRouter.defaultRouteParser(),
+          useInheritedMediaQuery: true,
+          theme: ThemeData.light().copyWith(
+            useMaterial3: true,
+            scaffoldBackgroundColor: Colors.white,
+            primaryColor: COLOR_PRIMARY,
+            appBarTheme: const AppBarTheme().copyWith(color: COLOR_PRIMARY),
+          ),
         ),
       ),
-    );
-  }
+    ),
+  );
 }

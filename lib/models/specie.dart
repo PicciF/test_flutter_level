@@ -16,7 +16,6 @@ class Specie {
   String rank;
   @JsonKey(defaultValue: "")
   String subpopulation;
-
   @JsonKey(defaultValue: "")
   String kindom;
   @JsonKey(defaultValue: "")
