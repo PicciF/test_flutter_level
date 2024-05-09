@@ -8,6 +8,9 @@
 * [ ] Api methods
 * [ ] Home Page and detail page
 
+# BUG
+* [ ] to fix pathprovider for web (no managed yet) 
+
 
 # API
 Ho riscontrato una problematica nella generazione del token per utilizzare le API.
@@ -23,3 +26,5 @@ Ho implementato gia i modelli utili in caso di di sviluppo della funzionalita bo
 # ROUTING
 Nonostante all`interno di questa app ci siano solo due pagine, ho scelto di usare la libreria auto_routing poichè è quella che utilizzo solitamente quindi la conoosco bene e so già come impostare tutte le impostazioni.
 La scelta è stata fatta anche perchè in caso di futuro sviluppo sarà più comodo aumentare il numero di pagine poichè la struttura del routing è gia definita.
+
+
