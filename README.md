@@ -29,5 +29,6 @@ La scelta è stata fatta anche perchè in caso di futuro sviluppo sarà più com
 
 # PAGES
 Ho aggiunto la schermata di splash in modo tale da completare la api iniziale la quale ha molti elementi.
-Preferisco inserire il caricamento dei dati iniziali nella schermata splash piuttosto che nella home perchè suppongo sia un percorso migliore, avvio l`app, avviene il carimento delle risorse iniziali e poi quando sono all interno dell app ho le informazioni subito.
+Preferisco inserire il caricamento dei dati iniziali nella schermata splash piuttosto che nella home perchè suppongo sia un percorso migliore, avvio l`app, avviene il carimento delle risorse iniziali e poi quando sono all interno dell app ho le informazioni subito. 
+Ho gia predisposto il codice per la login in quanto ho deciso di farla, di conseguenza mi viene più comodo strutturare il codice fin dallinizio prevedendo la login piuttosto di modificare successivamente.
 
