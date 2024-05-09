@@ -5,7 +5,7 @@
 * [x] Check API
 * [x] Model creation
 * [x] Rounting 
-* [ ] Api methods
+* [x] Api methods
 * [ ] Home Page and detail page
 
 # BUG

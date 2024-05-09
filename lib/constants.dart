@@ -3,8 +3,11 @@
 import 'package:flutter/material.dart';
 
 //base url for connecting to the api
-//const BASE_URL = "";
+const BASE_URL = "https://apiv3.iucnredlist.org/api/v3";
 
+const CATEGORY_VULNERABLE = "VU";
+
+const TOKEN = "9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee";
 //file preference
 const PREFS_FILE_NAME = "preferences.json";
 

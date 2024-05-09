@@ -17,11 +17,11 @@ class Specie {
   @JsonKey(defaultValue: "")
   String subpopulation;
   @JsonKey(defaultValue: "")
-  String kindom;
+  String kingdom;
   @JsonKey(defaultValue: "")
   String phylum;
-  @JsonKey(defaultValue: "")
-  String classs;
+  @JsonKey(defaultValue: "", name: "class")
+  String classification;
   @JsonKey(defaultValue: "")
   String order;
   @JsonKey(defaultValue: "")
@@ -59,9 +59,9 @@ class Specie {
       required this.subspecies,
       required this.rank,
       required this.subpopulation,
-      required this.kindom,
+      required this.kingdom,
       required this.phylum,
-      required this.classs,
+      required this.classification,
       required this.order,
       required this.family,
       required this.genus,
