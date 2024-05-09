@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test_flutter_level/backend/datastore.dart';
 import 'package:test_flutter_level/constants.dart';
@@ -24,15 +26,23 @@ class Preferences {
   Preferences.empty() : user = null;
 
   void save() {
-    DataStore().save(PREFS_FILE_NAME, json.encode(toJson()));
+    if (!kIsWeb) {
+      DataStore().save(PREFS_FILE_NAME, json.encode(toJson()));
+    } else {
+      DataStore().savePrefsWeb(toJson());
+    }
   }
 
   Future<Preferences> read() async {
-    if (await DataStore().exists(PREFS_FILE_NAME)) {
-      String text = await DataStore().read(PREFS_FILE_NAME);
-      return Preferences.fromJson(json.decode(text));
+    if (!kIsWeb) {
+      if (await DataStore().exists(PREFS_FILE_NAME)) {
+        String text = await DataStore().read(PREFS_FILE_NAME);
+        return Preferences.fromJson(json.decode(text));
+      } else {
+        return Preferences.empty();
+      }
     } else {
-      return Preferences.empty();
+      return Preferences.fromJson(json.decode(await const FlutterSecureStorage().read(key: PREFS_FILE_NAME) ?? '{}'));
     }
   }
 }

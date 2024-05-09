@@ -1,6 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:test_flutter_level/constants.dart';
 
 class DataStore {
   Future<String> read(String fileName) async {
@@ -18,9 +22,18 @@ class DataStore {
     return result;
   }
 
-  save(String fileName, String fileContent) async {
+  Future<void> save(String fileName, String fileContent) async {
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/$fileName');
     await file.writeAsString(fileContent);
+  }
+
+  Future<void> savePrefsWeb(Map toJson) async {
+    const storage = FlutterSecureStorage();
+    try {
+      await storage.write(key: PREFS_FILE_NAME, value: json.encode(toJson));
+    } catch (e) {
+      debugPrint("Error in saving prefs web: $e");
+    }
   }
 }

@@ -9,7 +9,7 @@
 * [ ] Home Page and detail page
 
 # BUG
-* [ ] to fix pathprovider for web (no managed yet) 
+* [X] to fix pathprovider for web (no managed yet) 
 
 
 # API
