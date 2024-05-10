@@ -30,7 +30,7 @@ class _ScaffoldLoginState extends State<ScaffoldLogin> with TickerProviderStateM
   void initState() {
     if (kDebugMode) {
       Future.delayed(Duration.zero, () async {
-        // put here some code that will run after the splash screen
+        //set for debug, to avoid to insert the username and password every time
         if (mounted) {
           setState(() {
             userController.text = "Marco";

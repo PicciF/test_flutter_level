@@ -26,12 +26,11 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
   bool endPage = false;
 
   //list of species to be displayed, add more items to see infinite scrolling
-  final listSectioned = global.species.sublist(0, 20); // List.generate(20, (index) => 'Item ${index + 1}');
+  final listSectioned = global.species.sublist(0, 20);
 
   @override
   void initState() {
     super.initState();
-
     scrollController.addListener(_loadMore);
     scrollController.addListener(_reachEnd);
   }
@@ -44,10 +43,10 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
 
   void _loadMore() {
     int end = listSectioned.length + pageSize;
-    //the 40 is for remove bad effect when the user reach the end of the list
     if (end > global.species.length) {
       end = global.species.length;
     }
+    //the 40 is for remove bad effect when the user reach the end of the list
     if (scrollController.position.maxScrollExtent - scrollController.position.pixels < 40) {
       setState(() {
         listSectioned.addAll(global.species.sublist(listSectioned.length, end));
@@ -79,7 +78,7 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             if (global.preferences.user?.username != null)
-                              //user ! because i have checked in the previous line
+                              //use ! because i have checked in the previous line
                               Text(
                                 "${global.preferences.user!.username},",
                                 overflow: TextOverflow.ellipsis,

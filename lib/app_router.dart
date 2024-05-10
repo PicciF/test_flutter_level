@@ -14,14 +14,14 @@ import '../scaffolds/scaffold_home.dart';
 @AdaptiveAutoRouter(
   routes: <AutoRoute>[
     AutoRoute(page: ScaffoldSplash),
-    AutoRoute(page: ScaffoldSingleSpecie),
+    AutoRoute(page: ScaffoldSingleSpecie, guards: [CheckIfSplashIsDone, CheckIfLoginIsDone]),
     AutoRoute(page: ScaffoldLogin, guards: [CheckIfSplashIsDone]),
-    AutoRoute(page: ScaffoldHome, guards: [CheckIfSplashIsDone, CheckIfLoginIsDone], initial: true), //guards: [],
+    AutoRoute(page: ScaffoldHome, guards: [CheckIfSplashIsDone, CheckIfLoginIsDone], initial: true),
   ],
 )
 class $AppRouter {}
 
-//guard for login check
+//guard for splash check
 
 class CheckIfSplashIsDone extends AutoRouteGuard {
   @override
@@ -34,6 +34,7 @@ class CheckIfSplashIsDone extends AutoRouteGuard {
   }
 }
 
+//guard for login check
 class CheckIfLoginIsDone extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) async {

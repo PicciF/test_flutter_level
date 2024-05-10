@@ -74,6 +74,10 @@ class AppRouter extends _i5.RootStackRouter {
         _i5.RouteConfig(
           ScaffoldSingleSpecieRoute.name,
           path: '/scaffold-single-specie',
+          guards: [
+            checkIfSplashIsDone,
+            checkIfLoginIsDone,
+          ],
         ),
         _i5.RouteConfig(
           ScaffoldLoginRoute.name,

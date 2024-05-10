@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:test_flutter_level/constants.dart';
 import 'package:test_flutter_level/models/specie.dart';
 
 import 'api_utils.dart';
 
-// This is the place where you find the apis as static functions
+// This is the place where you find the apis
 
 Future<List<Specie>> getSpeciesByCategory(String category) async {
   var response = await callApi(
@@ -27,7 +26,6 @@ Future<Specie> getSpecieDetailsByName(String name) async {
       "token": TOKEN,
     },
   );
-  debugPrint("finito");
   return Specie.fromJson(response.result.first);
 }
 

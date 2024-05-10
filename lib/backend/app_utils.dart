@@ -1,5 +1,3 @@
-// This is the place where you can add some static functions dedicated to the app
-
 import 'package:flutter/material.dart';
 import 'package:test_flutter_level/constants.dart';
 
