@@ -21,7 +21,6 @@ Future<RestResponse> callApi(
   dynamic body,
 }) async {
   http.Response rawResponse = http.Response("", 500);
-  //late http.Response rawResponse;
   headers ??= {};
   headers["Content-Type"] ??= "application/x-www-form-urlencoded";
   RestResponse response;

@@ -9,6 +9,7 @@ class Loader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: remove deprecated element and replace it
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Center(
