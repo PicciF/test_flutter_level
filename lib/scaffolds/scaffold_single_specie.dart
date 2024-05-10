@@ -21,7 +21,7 @@ class _ScaffoldSingleSpecieState extends State<ScaffoldSingleSpecie> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("dettaglio"),
+          title: const Text("Dettaglio"),
           centerTitle: true,
           backgroundColor: APP_BAR_COLOR,
         ),
@@ -31,6 +31,9 @@ class _ScaffoldSingleSpecieState extends State<ScaffoldSingleSpecie> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                height: 16,
+              ),
               if (widget.specie.mainCommonName.isNotEmpty)
                 Text(
                   widget.specie.mainCommonName,
