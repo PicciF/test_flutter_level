@@ -34,3 +34,5 @@ Ho gia predisposto il codice per la login in quanto ho deciso di farla, di conse
 
 Ho scelto di gestire la lista di speci vulnerabili come una lista infinita data la grossa mole di elementi, per non appesantire il caricamento e lo scroll ho deciso di impaginare gli elementi con un pagesize di 20, al termine dello scroll di questi 20 elementi vengono aggiungi alla lista che viene mostrata altri 20 elementi in automatico.
 
+Nella home page ho messo la dimensione del testo che si adatta in automatico a seconda di quanto spazio ce, impostando un minimo di dimensione font per maggiore leggibilita. Ho messo anche un tooltip che mostra l intero nome scientifico solo in caso sia lungo piu di 30 caratteri e in caso sia su android, in modo da non dover per forza entrare nel dettaglio.
+

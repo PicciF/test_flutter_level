@@ -13,6 +13,7 @@ const PREFS_FILE_NAME = "preferences.json";
 
 //COLORS
 const COLOR_PRIMARY = Color(0xFF21005D);
+const APP_BAR_COLOR = Colors.green;
 const COLOR_GREY = Colors.grey;
 const COLOR_WHITE = Colors.white;
 const COLOR_BLACK = Colors.black;

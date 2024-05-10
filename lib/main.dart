@@ -33,7 +33,6 @@ void main() async {
             useMaterial3: true,
             scaffoldBackgroundColor: Colors.white,
             primaryColor: COLOR_PRIMARY,
-            appBarTheme: const AppBarTheme().copyWith(color: COLOR_PRIMARY),
           ),
         ),
       ),
