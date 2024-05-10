@@ -14,7 +14,7 @@ import 'app_router.gr.dart';
 import 'globals.dart';
 
 void main() async {
-  final appRouter = AppRouter(checkIfSplashIsDone: CheckIfSplashIsDone());
+  final appRouter = AppRouter(checkIfSplashIsDone: CheckIfSplashIsDone(), checkIfLoginIsDone: CheckIfLoginIsDone());
   WidgetsFlutterBinding.ensureInitialized();
 
   global.preferences = await Preferences().read();

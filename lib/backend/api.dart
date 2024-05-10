@@ -30,3 +30,11 @@ Future<Specie> getSpecieDetailsByName(String name) async {
   debugPrint("finito");
   return Specie.fromJson(response.result.first);
 }
+
+Future<bool> apiLogin(String password) async {
+  if (password == PASSWORD_DB) {
+    return true;
+  } else {
+    return false;
+  }
+}

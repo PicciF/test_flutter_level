@@ -66,6 +66,16 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
           //set false to remove the back button for sure in every case
           automaticallyImplyLeading: false,
           backgroundColor: APP_BAR_COLOR,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: () {
+                global.preferences.user = null;
+                global.preferences.save();
+                AutoRouter.of(context).replace(const ScaffoldLoginRoute());
+              },
+            )
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
