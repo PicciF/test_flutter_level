@@ -41,3 +41,5 @@ Nella pagina del dettaglio della singola specie ho scelto di riportare le inform
 
 Per quanto riguarda la login avviene tramite uno username e una password (per il test è una login finta quindi semplicemente si controlla una costante), viene effettuata la login e il salvataggio dell`utente, il quale non fare un altro login se non fara una logout o disinstallera l app ovviamente. Funziona sia su web sia su android, su web pero se si chiude il browser bisognerà rieffettuare la login. 
 
+La dimensione degli oggetti nella pagina di login si puo gestire in molti modi diversi, dipende molto dal mockup e da cosa viene visualizzato.
+

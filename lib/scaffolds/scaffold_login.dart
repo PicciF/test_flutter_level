@@ -56,7 +56,7 @@ class _ScaffoldLoginState extends State<ScaffoldLogin> with TickerProviderStateM
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: !kIsWeb ? CrossAxisAlignment.start : CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
@@ -68,89 +68,98 @@ class _ScaffoldLoginState extends State<ScaffoldLogin> with TickerProviderStateM
               Container(
                 height: 32,
               ),
-              Text(
-                "Nome utente",
-                style: Theme.of(context).textTheme.bodyLarge,
+              SizedBox(
+                width: !kIsWeb ? double.infinity : 400,
+                child: Text(
+                  "Nome utente",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
               Container(
                 height: 16,
               ),
-              SpecieTextField(
-                controller: userController,
-                hint: "Inserire nome utente",
-                icon: const Icon(Icons.person),
+              SizedBox(
+                width: !kIsWeb ? double.infinity : 400,
+                child: SpecieTextField(
+                  controller: userController,
+                  hint: "Inserire nome utente",
+                  icon: const Icon(Icons.person),
+                ),
               ),
               Container(
                 height: 32,
               ),
-              Text(
-                "Password",
-                style: Theme.of(context).textTheme.bodyLarge,
+              SizedBox(
+                width: !kIsWeb ? double.infinity : 400,
+                child: Text(
+                  "Password",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
               Container(
                 height: 16,
               ),
-              SpecieTextField(
-                controller: passwordController,
-                hint: "Inserire password",
-                obscureText: true,
-                isVisiblePass: true,
-                icon: const Icon(Icons.lock),
+              SizedBox(
+                width: !kIsWeb ? double.infinity : 400,
+                child: SpecieTextField(
+                  controller: passwordController,
+                  hint: "Inserire password",
+                  obscureText: true,
+                  isVisiblePass: true,
+                  icon: const Icon(Icons.lock),
+                ),
               ),
               Container(
                 height: 32,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        setState(() {
-                          isLoading = true;
-                        });
-                        if (isLoading) {
-                          showDialog(barrierDismissible: false, context: context, builder: (context) => const Loader());
-                        }
+              SizedBox(
+                width: !kIsWeb ? double.infinity : 400,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    if (isLoading) {
+                      showDialog(barrierDismissible: false, context: context, builder: (context) => const Loader());
+                    }
 
-                        try {
-                          if (await apiLogin(passwordController.text)) {
-                            debugPrint("Login effettuato");
-                            global.preferences.user = User(username: userController.text);
-                            global.preferences.save();
-                          } else {
-                            if (mounted) {
-                              showSnackBar(
-                                  content: const Text(
-                                    "Errore - Password errata",
-                                    style: TextStyle(color: COLOR_WHITE),
-                                  ),
-                                  context: context,
-                                  isError: true);
-                            }
-                          }
-                        } catch (e) {
-                          if (mounted) {
-                            showSnackBar(
-                                content: Text(
-                                  "Errore - $e",
-                                  style: const TextStyle(color: COLOR_WHITE),
-                                ),
-                                context: context,
-                                isError: true);
-                          }
-                          Navigator.pop(context);
+                    try {
+                      if (await apiLogin(passwordController.text)) {
+                        debugPrint("Login effettuato");
+                        global.preferences.user = User(username: userController.text);
+                        global.preferences.save();
+                      } else {
+                        if (mounted) {
+                          showSnackBar(
+                              content: const Text(
+                                "Errore - Password errata",
+                                style: TextStyle(color: COLOR_WHITE),
+                              ),
+                              context: context,
+                              isError: true);
                         }
-                        setState(() {
-                          isLoading = false;
-                          Navigator.pop(context);
-                        });
+                      }
+                    } catch (e) {
+                      if (mounted) {
+                        showSnackBar(
+                            content: Text(
+                              "Errore - $e",
+                              style: const TextStyle(color: COLOR_WHITE),
+                            ),
+                            context: context,
+                            isError: true);
+                      }
+                      Navigator.pop(context);
+                    }
+                    setState(() {
+                      isLoading = false;
+                      Navigator.pop(context);
+                    });
 
-                        AutoRouter.of(context).replace(const ScaffoldHomeRoute());
-                      },
-                      child: const Text("Login"),
-                    ),
-                  ),
-                ],
+                    AutoRouter.of(context).replace(const ScaffoldHomeRoute());
+                  },
+                  child: const Text("Login"),
+                ),
               ),
             ],
           ),

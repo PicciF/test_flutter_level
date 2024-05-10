@@ -48,8 +48,7 @@ class Preferences {
       } catch (e) {
         debugPrint("Error in reading prefs web: $e");
       }
-
-      return Preferences.fromJson(json.decode(preferencesSaved));
+      return Preferences.fromJson(json.decode(preferencesSaved.isEmpty ? '{}' : preferencesSaved));
     }
   }
 }
