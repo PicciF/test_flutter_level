@@ -14,6 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i4;
 import 'package:flutter/material.dart' as _i5;
 import 'package:test_flutter_level/app_router.dart' as _i6;
+import 'package:test_flutter_level/models/specie.dart' as _i7;
 import 'package:test_flutter_level/scaffolds/scaffold_home.dart' as _i3;
 import 'package:test_flutter_level/scaffolds/scaffold_single_specie.dart'
     as _i2;
@@ -36,9 +37,13 @@ class AppRouter extends _i4.RootStackRouter {
       );
     },
     ScaffoldSingleSpecieRoute.name: (routeData) {
+      final args = routeData.argsAs<ScaffoldSingleSpecieRouteArgs>();
       return _i4.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i2.ScaffoldSingleSpecie(),
+        child: _i2.ScaffoldSingleSpecie(
+          key: args.key,
+          specie: args.specie,
+        ),
       );
     },
     ScaffoldHomeRoute.name: (routeData) {
@@ -81,14 +86,37 @@ class ScaffoldSplashRoute extends _i4.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.ScaffoldSingleSpecie]
-class ScaffoldSingleSpecieRoute extends _i4.PageRouteInfo<void> {
-  const ScaffoldSingleSpecieRoute()
-      : super(
+class ScaffoldSingleSpecieRoute
+    extends _i4.PageRouteInfo<ScaffoldSingleSpecieRouteArgs> {
+  ScaffoldSingleSpecieRoute({
+    _i5.Key? key,
+    required _i7.Specie specie,
+  }) : super(
           ScaffoldSingleSpecieRoute.name,
           path: '/scaffold-single-specie',
+          args: ScaffoldSingleSpecieRouteArgs(
+            key: key,
+            specie: specie,
+          ),
         );
 
   static const String name = 'ScaffoldSingleSpecieRoute';
+}
+
+class ScaffoldSingleSpecieRouteArgs {
+  const ScaffoldSingleSpecieRouteArgs({
+    this.key,
+    required this.specie,
+  });
+
+  final _i5.Key? key;
+
+  final _i7.Specie specie;
+
+  @override
+  String toString() {
+    return 'ScaffoldSingleSpecieRouteArgs{key: $key, specie: $specie}';
+  }
 }
 
 /// generated route for

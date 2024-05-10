@@ -7,6 +7,7 @@ import 'package:test_flutter_level/backend/api.dart';
 import 'package:test_flutter_level/backend/app_utils.dart';
 import 'package:test_flutter_level/constants.dart';
 import 'package:test_flutter_level/globals.dart';
+import 'package:test_flutter_level/models/specie.dart';
 import 'package:test_flutter_level/widgets/listtile_specie.dart';
 import 'package:test_flutter_level/widgets/loader.dart';
 
@@ -30,6 +31,7 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
   @override
   void initState() {
     super.initState();
+
     scrollController.addListener(_loadMore);
     scrollController.addListener(_reachEnd);
   }
@@ -55,6 +57,8 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
 
   @override
   Widget build(BuildContext context) {
+    Specie specie = Specie.empty();
+    bool isLoading = false;
     return Scaffold(
         appBar: AppBar(
           title: const Text("Speci Vulnerabili"),
@@ -86,16 +90,15 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
                         child: ListtileSpecie(
                           specie: listSectioned[index],
                           onPressed: () async {
-                            bool isLoading = false;
                             setState(() {
                               isLoading = true;
                             });
-                            isLoading
-                                ? showDialog(
-                                    barrierDismissible: false, context: context, builder: (context) => const Loader())
-                                : Container();
+                            if (isLoading) {
+                              showDialog(
+                                  barrierDismissible: false, context: context, builder: (context) => const Loader());
+                            }
                             try {
-                              var specie = await getSpecieDetailsByName(listSectioned[index].scientificName);
+                              specie = await getSpecieDetailsByName(listSectioned[index].scientificName);
                             } catch (e) {
                               //i have removed the lint warning because i had manage the warning
                               if (mounted) {
@@ -106,15 +109,16 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
                                     ),
                                     context: context,
                                     isError: true);
-
-                                Navigator.pop(context);
                               }
+
+                              Navigator.pop(context);
                             }
+
                             setState(() {
                               isLoading = false;
                             });
-
-                            AutoRouter.of(context).push(const ScaffoldHomeRoute());
+                            Navigator.pop(context);
+                            AutoRouter.of(context).push(ScaffoldSingleSpecieRoute(specie: specie));
                           },
                         ),
                       );

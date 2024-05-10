@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:test_flutter_level/constants.dart';
 import 'package:test_flutter_level/models/specie.dart';
 
@@ -26,6 +27,6 @@ Future<Specie> getSpecieDetailsByName(String name) async {
       "token": TOKEN,
     },
   );
-
+  debugPrint("finito");
   return Specie.fromJson(response.result.first);
 }

@@ -78,6 +78,32 @@ class Specie {
       required this.assessor,
       required this.reviewer});
 
+  //generate empty object
+  factory Specie.empty() => Specie(
+      taxonId: 0,
+      scientificName: "",
+      subspecies: "",
+      rank: "",
+      subpopulation: "",
+      kingdom: "",
+      phylum: "",
+      classification: "",
+      order: "",
+      family: "",
+      genus: "",
+      mainCommonName: "",
+      authority: "",
+      publishedYear: 0,
+      assessmentDate: null,
+      category: "",
+      criteria: "",
+      populationTrend: "",
+      marineSystem: false,
+      freshwaterSystem: false,
+      terrestrialSystem: false,
+      assessor: "",
+      reviewer: "");
+
   factory Specie.fromJson(Map<String, dynamic> json) => _$SpecieFromJson(json);
 
   Map<String, dynamic> toJson() => _$SpecieToJson(this);

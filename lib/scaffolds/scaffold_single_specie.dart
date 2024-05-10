@@ -2,11 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:test_flutter_level/constants.dart';
+import 'package:test_flutter_level/models/specie.dart';
 
 class ScaffoldSingleSpecie extends StatefulWidget {
   const ScaffoldSingleSpecie({
     super.key,
+    required this.specie,
   });
+
+  final Specie specie;
 
   @override
   State<ScaffoldSingleSpecie> createState() => _ScaffoldSingleSpecieState();
@@ -19,9 +23,13 @@ class _ScaffoldSingleSpecieState extends State<ScaffoldSingleSpecie> {
         appBar: AppBar(
           title: const Text("dettaglio"),
           centerTitle: true,
-          //set false to remove the back button for sure in every case
-          automaticallyImplyLeading: false,
           backgroundColor: APP_BAR_COLOR,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         body: const Text("dettaglio"));
   }
