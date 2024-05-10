@@ -12,6 +12,10 @@
 # BUG
 * [X] to fix pathprovider for web (no managed yet) 
 
+# LOGIN
+* username: qualsiasi
+* password: "Password123" (salvata nella costante PASSWORD_DB)
+
 
 # API
 Ho riscontrato una problematica nella generazione del token per utilizzare le API.
