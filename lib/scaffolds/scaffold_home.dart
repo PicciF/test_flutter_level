@@ -78,7 +78,13 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("${global.preferences.user?.username}," ?? ""),
+                            if (global.preferences.user?.username != null)
+                              //user ! because i have checked in the previous line
+                              Text(
+                                "${global.preferences.user!.username},",
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ),
                             const Text("sei sicuro di voler uscire?"),
                           ],
                         ),
