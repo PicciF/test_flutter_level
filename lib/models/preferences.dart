@@ -42,7 +42,14 @@ class Preferences {
         return Preferences.empty();
       }
     } else {
-      return Preferences.fromJson(json.decode(await const FlutterSecureStorage().read(key: PREFS_FILE_NAME) ?? '{}'));
+      String preferencesSaved = '{}';
+      try {
+        preferencesSaved = await const FlutterSecureStorage().read(key: PREFS_FILE_NAME) ?? '';
+      } catch (e) {
+        debugPrint("Error in reading prefs web: $e");
+      }
+
+      return Preferences.fromJson(json.decode(preferencesSaved));
     }
   }
 }

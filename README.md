@@ -7,6 +7,7 @@
 * [x] Rounting 
 * [x] Api methods
 * [x] Home Page and detail page
+* [x] login
 
 # BUG
 * [X] to fix pathprovider for web (no managed yet) 
@@ -37,4 +38,6 @@ Ho scelto di gestire la lista di speci vulnerabili come una lista infinita data 
 Nella home page ho messo la dimensione del testo che si adatta in automatico a seconda di quanto spazio ce, impostando un minimo di dimensione font per maggiore leggibilita. Ho messo anche un tooltip che mostra l intero nome scientifico solo in caso sia lungo piu di 30 caratteri e in caso sia su android, in modo da non dover per forza entrare nel dettaglio.
 
 Nella pagina del dettaglio della singola specie ho scelto di riportare le informazioni che ho segnato perche sono quelle che a mio avviso sono piu importanti e sono abbastanza sempre presenti all` interno delle api, come dato. (in un contesto reale viene richiesto al cliente)
+
+Per quanto riguarda la login avviene tramite uno username e una password (per il test è una login finta quindi semplicemente si controlla una costante), viene effettuata la login e il salvataggio dell`utente, il quale non fare un altro login se non fara una logout o disinstallera l app ovviamente. Funziona sia su web sia su android, su web pero se si chiude il browser bisognerà rieffettuare la login. 
 

@@ -105,6 +105,7 @@ class _ScaffoldLoginState extends State<ScaffoldLogin> with TickerProviderStateM
 
                         try {
                           if (await apiLogin(passwordController.text)) {
+                            debugPrint("Login effettuato");
                             global.preferences.user = User(username: userController.text);
                             global.preferences.save();
                           } else {

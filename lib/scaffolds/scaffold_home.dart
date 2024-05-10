@@ -70,9 +70,37 @@ class _ScaffoldHomeState extends State<ScaffoldHome> {
             IconButton(
               icon: const Icon(Icons.logout),
               onPressed: () {
-                global.preferences.user = null;
-                global.preferences.save();
-                AutoRouter.of(context).replace(const ScaffoldLoginRoute());
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("${global.preferences.user?.username}," ?? ""),
+                            const Text("sei sicuro di voler uscire?"),
+                          ],
+                        ),
+                        content: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TextButton(
+                              child: const Text("Si"),
+                              onPressed: () {
+                                global.logout();
+                                AutoRouter.of(context).replace(const ScaffoldHomeRoute());
+                              },
+                            ),
+                            TextButton(
+                                child: const Text("No"),
+                                onPressed: () async {
+                                  Navigator.pop(context);
+                                }),
+                          ],
+                        ),
+                      );
+                    });
               },
             )
           ],
