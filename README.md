@@ -6,7 +6,7 @@
 * [x] Model creation
 * [x] Rounting 
 * [x] Api methods
-* [ ] Home Page and detail page
+* [x] Home Page and detail page
 
 # BUG
 * [X] to fix pathprovider for web (no managed yet) 
@@ -35,4 +35,6 @@ Ho gia predisposto il codice per la login in quanto ho deciso di farla, di conse
 Ho scelto di gestire la lista di speci vulnerabili come una lista infinita data la grossa mole di elementi, per non appesantire il caricamento e lo scroll ho deciso di impaginare gli elementi con un pagesize di 20, al termine dello scroll di questi 20 elementi vengono aggiungi alla lista che viene mostrata altri 20 elementi in automatico.
 
 Nella home page ho messo la dimensione del testo che si adatta in automatico a seconda di quanto spazio ce, impostando un minimo di dimensione font per maggiore leggibilita. Ho messo anche un tooltip che mostra l intero nome scientifico solo in caso sia lungo piu di 30 caratteri e in caso sia su android, in modo da non dover per forza entrare nel dettaglio.
+
+Nella pagina del dettaglio della singola specie ho scelto di riportare le informazioni che ho segnato perche sono quelle che a mio avviso sono piu importanti e sono abbastanza sempre presenti all` interno delle api, come dato. (in un contesto reale viene richiesto al cliente)
 
