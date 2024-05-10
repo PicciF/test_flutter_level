@@ -43,3 +43,13 @@ Per quanto riguarda la login avviene tramite uno username e una password (per il
 
 La dimensione degli oggetti nella pagina di login si puo gestire in molti modi diversi, dipende molto dal mockup e da cosa viene visualizzato.
 
+# Dipendenze
+
+* Device Preview: utilizzata per avere una visione completa di come potrebbe girare la mia app su diversi dispositivi e/o diverse impostazioni, quali la dimensione del font
+* Auto route generator: utilizzata per gestire il routing dell intera app
+* http: utilizzata per effettuare le chiamate api
+* Flutter secure storage: utilizzata per gestire il salvataggio delle preferences su web
+* Build runner, json serializable e json annotation: utilizzate per cio che riguarda la gestione dei modelli e rotte
+* Auto Size Text: utilizzata per gestire meglio la dimensione del testo in funzione della sua lunghezza e dello spazio a disposizione
+* Path provider: utilizzata per la gestione del salvataggio delle preferences su android
+
