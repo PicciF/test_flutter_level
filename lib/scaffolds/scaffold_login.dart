@@ -59,6 +59,15 @@ class _ScaffoldLoginState extends State<ScaffoldLogin> with TickerProviderStateM
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Center(
+                child: Text(
+                  "Login",
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+              ),
+              Container(
+                height: 32,
+              ),
               Text(
                 "Nome utente",
                 style: Theme.of(context).textTheme.bodyLarge,
