@@ -54,48 +54,69 @@ class _ScaffoldSingleSpecieState extends State<ScaffoldSingleSpecie> {
               Container(
                 height: 16,
               ),
-              Text(
-                "Regno: ${widget.specie.kingdom}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Container(
-                height: 16,
-              ),
-              Text(
-                "Phylum: ${widget.specie.phylum}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Container(
-                height: 16,
-              ),
-              Text(
-                "Classification: ${widget.specie.classification}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Container(
-                height: 16,
-              ),
-              Text(
-                "Ordine: ${widget.specie.order}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Container(
-                height: 16,
-              ),
-              Text(
-                "Famiglia: ${widget.specie.family}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Container(
-                height: 16,
-              ),
-              Text(
-                "Genere: ${widget.specie.genus}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Container(
-                height: 16,
-              ),
+              if (widget.specie.kingdom.isNotEmpty) ...[
+                Text(
+                  "Regno: ${widget.specie.kingdom}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
+              if (widget.specie.phylum.isNotEmpty) ...[
+                Text(
+                  "Phylum: ${widget.specie.phylum}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
+              if (widget.specie.classification.isNotEmpty) ...[
+                Text(
+                  "Classification: ${widget.specie.classification}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
+              if (widget.specie.order.isNotEmpty) ...[
+                Text(
+                  "Ordine: ${widget.specie.order}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
+              if (widget.specie.family.isNotEmpty) ...[
+                Text(
+                  "Famiglia: ${widget.specie.family}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
+              if (widget.specie.genus.isNotEmpty) ...[
+                Text(
+                  "Genere: ${widget.specie.genus}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
+              if (widget.specie.rank.isNotEmpty) ...[
+                Text(
+                  "Rank: ${widget.specie.rank}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Container(
+                  height: 16,
+                )
+              ],
               if (widget.specie.terrestrialSystem) ...[
                 Text(
                   "Fa parte del sistema terrestre",
